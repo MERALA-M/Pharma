@@ -1,0 +1,63 @@
+10. PATTERN: Composite
+CATEGORY: Structural
+FILES:
+
+src/main/java/com/pharmacy/patterns/composite/MedicineComponent.java
+src/main/java/com/pharmacy/patterns/composite/MedicineCategory.java
+CODE:
+
+java
+public interface MedicineComponent { void displayHierarchy(String indent); }
+public class MedicineCategory implements MedicineComponent {
+    private List<MedicineComponent> children = new ArrayList<>();
+    public void add(MedicineComponent c) { children.add(c); }
+    public void displayHierarchy(String indent) {
+        for (MedicineComponent c : children) c.displayHierarchy(indent + " ");
+    }
+}
+TRIGGER:
+
+MedicineController.handleShowComposite ("Hierarchy" button).
+UML RELATIONSHIPS:
+Medicine and MedicineCategory implement MedicineComponent.
+MedicineCategory contains list of MedicineComponent (Aggregation).
+11. PATTERN: Observer
+CATEGORY: Behavioral
+FILES:
+
+src/main/java/com/pharmacy/patterns/InventorySubject.java
+src/main/java/com/pharmacy/patterns/InventoryObserver.java
+CODE:
+
+java
+public interface InventoryObserver { void onStockAlert(Medicine m, String msg); }
+public class InventorySubject {
+    private List<InventoryObserver> observers = new ArrayList<>();
+    public void notifyObservers(Medicine m) {
+        for (InventoryObserver o : observers) o.onStockAlert(m, "Low Stock");
+    }
+}
+TRIGGER:
+
+DashboardController registers as observer to show live alerts.
+UML RELATIONSHIPS:
+InventorySubject stores InventoryObserver (Aggregation).
+DashboardController implements InventoryObserver.
+12. PATTERN: Strategy
+CATEGORY: Behavioral
+FILES:
+
+src/main/java/com/pharmacy/patterns/PaymentStrategy.java
+src/main/java/com/pharmacy/patterns/CashPayment.java
+CODE:
+
+java
+public interface PaymentStrategy { boolean pay(double amount); }
+public class CashPayment implements PaymentStrategy {
+    public boolean pay(double amount) { System.out.println("Paid Cash: " + amount); return true; }
+}
+TRIGGER:
+
+CartController.handleCheckout method selection.
+UML RELATIONSHIPS:
+CashPayment, CardPayment, InsuranceAdapter implement PaymentStrategy.
