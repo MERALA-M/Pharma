@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+
+<HBox spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.controller.CartController" style="-fx-background-color: white;">
+    <padding>
+        <Insets bottom="10" left="15" right="15" top="10" />
+    </padding>
+
+    <!-- Left Side: Cart Items -->
+    <VBox spacing="15" HBox.hgrow="ALWAYS">
+        <HBox alignment="CENTER_LEFT">
+            <Label text="Your Shopping Cart" style="-fx-font-size: 24px; -fx-font-weight: 800; -fx-text-fill: #1e293b;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Clear All" onAction="#handleClearCart" style="-fx-background-color: transparent; -fx-text-fill: #64748b; -fx-cursor: hand;" />
+        </HBox>
+        
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: white; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
+            <VBox fx:id="cartItemsContainer" spacing="10">
+                <!-- Programmatic cards will be added here -->
+            </VBox>
+        </ScrollPane>
+    </VBox>
+
+    <!-- Right Side: Order Summary -->
+    <VBox spacing="15" prefWidth="350" style="-fx-background-color: #f8fafc; -fx-padding: 15; -fx-background-radius: 15; -fx-border-color: #e2e8f0; -fx-border-radius: 15;">
+        <Label text="Order Summary" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0f172a;" />
+        
+        <VBox spacing="12" style="-fx-padding: 10 0; -fx-border-color: #e2e8f0; -fx-border-width: 0 0 1 0;">
+            <HBox>
+                <Label text="Subtotal" style="-fx-text-fill: #64748b;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblSubtotal" text="0.00" style="-fx-font-weight: bold;" />
+            </HBox>
+            <HBox>
+                <Label text="Tax (5%)" style="-fx-text-fill: #64748b;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblTax" text="0.00" style="-fx-font-weight: bold;" />
+            </HBox>
+            <HBox>
+                <Label text="Delivery Fee" style="-fx-text-fill: #64748b;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblDelivery" text="0.00" style="-fx-font-weight: bold;" />
+            </HBox>
+            <HBox fx:id="discountRow">
+                <Label text="Discount" style="-fx-text-fill: #10b981;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblDiscount" text="-0.00" style="-fx-font-weight: bold; -fx-text-fill: #10b981;" />
+            </HBox>
+        </VBox>
+        
+        <HBox alignment="CENTER_LEFT">
+            <Label text="Total Amount" style="-fx-font-size: 20px; -fx-font-weight: 800; -fx-text-fill: #0f172a;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblTotal" text="0.00" style="-fx-font-size: 22px; -fx-font-weight: 900; -fx-text-fill: #2563eb;" />
+        </HBox>
+
+        <VBox spacing="8" style="-fx-padding: 10 0;">
+            <Label text="Payment Method" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+            <ComboBox fx:id="cmbPaymentMethod" maxWidth="Infinity" style="-fx-background-radius: 8;" />
+        </VBox>
+        
+        <Button text="Place Order Now" onAction="#handleCheckout" maxWidth="Infinity" prefHeight="45" 
+                style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: 900; -fx-font-size: 15px; -fx-background-radius: 10; -fx-cursor: hand;" />
+        
+        <VBox alignment="CENTER" spacing="5">
+            <Label text="🔒 Secure Checkout" style="-fx-text-fill: #64748b; -fx-font-size: 11px;" />
+            <Label text="100% Satisfaction Guaranteed" style="-fx-text-fill: #94a3b8; -fx-font-size: 10px;" />
+        </VBox>
+    </VBox>
+</HBox>

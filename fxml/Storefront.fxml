@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox spacing="25" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.controller.StorefrontController">
+    <VBox>
+        <Label text="Health &amp; Wellness Storefront" styleClass="heading-1" />
+        <Label text="Browse and purchase medicines online" styleClass="text-muted" />
+    </VBox>
+    
+    <VBox styleClass="card" VBox.vgrow="ALWAYS" spacing="15">
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="text-field" maxWidth="400">
+            <FontAwesomeIconView glyphName="SEARCH" fill="#94A3B8" />
+            <TextField fx:id="txtSearchMed" promptText="Search Products..." style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 0;" HBox.hgrow="ALWAYS" />
+        </HBox>
+        
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;">
+            <content>
+                <FlowPane fx:id="productsFlowPane" hgap="20" vgap="20" />
+            </content>
+        </ScrollPane>
+    </VBox>
+</VBox>

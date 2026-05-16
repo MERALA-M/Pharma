@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane fx:id="mainBorderPane" prefHeight="720.0" prefWidth="1100.0" styleClass="root" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.controller.MainController">
+   
+   <left>
+      <VBox prefWidth="260.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <!-- Branding -->
+            <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding: 30 20 40 20;">
+               <children>
+                  <StackPane style="-fx-background-color: linear-gradient(to bottom right, #00A3AD, #006D75); -fx-background-radius: 12; -fx-padding: 10; -fx-effect: dropshadow(three-pass-box, rgba(0, 163, 173, 0.3), 10, 0, 0, 4);">
+                      <FontAwesomeIconView glyphName="HEART" size="22" fill="WHITE" />
+                  </StackPane>
+                  <Label text="💊 Pharma" style="-fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: #0F172A;" />
+               </children>
+            </HBox>
+            
+            <!-- Dynamic Navigation injected via Controller -->
+            <VBox fx:id="navMenu" spacing="5" VBox.vgrow="ALWAYS">
+                <!-- Buttons are added dynamically -->
+            </VBox>
+
+            <VBox spacing="15" style="-fx-padding: 20; -fx-border-color: rgba(226, 232, 240, 0.5); -fx-border-width: 1 0 0 0;">
+                <Button maxWidth="Infinity" styleClass="btn-secondary" text="Logout" onAction="#handleLogout">
+                   <graphic>
+                      <FontAwesomeIconView glyphName="SIGN_OUT" size="14" fill="#64748B" />
+                   </graphic>
+                </Button>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+          <!-- Top Header Profile Bar -->
+          <HBox alignment="CENTER_RIGHT" spacing="15" styleClass="top-header">
+              <Label fx:id="lblRole" text="Role" styleClass="badge-role" />
+              <VBox alignment="CENTER_RIGHT">
+                  <Label fx:id="lblUserName" text="User Name" style="-fx-font-weight: bold; -fx-text-fill: #1E293B;" />
+                  <Label text="Active Session" styleClass="text-muted" style="-fx-font-size: 11px;" />
+              </VBox>
+              <Button fx:id="btnProfile" styleClass="btn-icon" onAction="#showProfile" style="-fx-background-color: transparent; -fx-padding: 0; -fx-cursor: hand;">
+                  <graphic>
+                      <StackPane>
+                          <Circle fill="linear-gradient(to right, #00A3AD, #008291)" radius="20" />
+                          <FontAwesomeIconView glyphName="USER" fill="white" size="20" />
+                      </StackPane>
+                  </graphic>
+              </Button>
+          </HBox>
+          
+          <!-- Content Area -->
+          <javafx.scene.control.ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: transparent; -fx-padding: 0;">
+              <StackPane fx:id="contentArea">
+                 <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                 </padding>
+                 <!-- Dynamic content loaded here -->
+              </StackPane>
+          </javafx.scene.control.ScrollPane>
+      </VBox>
+   </center>
+
+</BorderPane>

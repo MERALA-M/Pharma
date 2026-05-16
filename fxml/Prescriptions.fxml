@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<VBox spacing="25" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.controller.PrescriptionsController">
+    <children>
+        <VBox>
+            <Label text="Prescriptions Management" styleClass="heading-1" />
+            <Label text="Verify and approve prescriptions (Chain of Responsibility Pattern)" styleClass="text-muted" />
+        </VBox>
+        
+        <VBox styleClass="card" spacing="20" maxWidth="600">
+            <Label text="Prescription Details" styleClass="heading-2" />
+            
+            <VBox spacing="10">
+                <Label text="Prescription Type" />
+                <ComboBox fx:id="cmbPrescriptionType" maxWidth="Infinity" styleClass="text-field" />
+            </VBox>
+            
+            <VBox spacing="10">
+                <Label text="Patient &amp; Doctor Notes" />
+                <TextArea fx:id="txtPrescriptionDetails" prefHeight="100" promptText="Enter notes..." wrapText="true" />
+            </VBox>
+            
+            <Button text="Verify Prescription" styleClass="btn-primary" onAction="#handleVerify" maxWidth="Infinity">
+                <graphic>
+                    <FontAwesomeIconView glyphName="CHECK_SQUARE_O" fill="white" />
+                </graphic>
+            </Button>
+        </VBox>
+    </children>
+</VBox>

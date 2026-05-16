@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<StackPane fx:id="rootPane" styleClass="login-bg" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.controller.RegisterController">
+   <children>
+      <VBox alignment="CENTER" maxWidth="450" spacing="15" styleClass="login-box">
+         <children>
+            <!-- Blended Premium Logo: Medical Heart + Pharmacy Snake -->
+            <StackPane style="-fx-background-color: rgba(0, 163, 173, 0.05); -fx-background-radius: 50%; -fx-padding: 5; -fx-pref-width: 100; -fx-pref-height: 100;">
+                <javafx.scene.Group scaleX="0.85" scaleY="0.85">
+                    <!-- Premium Medical Heart (Broken/Spliced Detail) -->
+                    <javafx.scene.shape.SVGPath content="M 50,85 C 50,85 10,55 10,30 A 20,20 0 0 1 50,20 A 20,20 0 0 1 90,30 C 90,55 50,85 50,85 Z" 
+                        fill="transparent" strokeWidth="4" strokeLineCap="ROUND">
+                        <stroke>
+                            <javafx.scene.paint.LinearGradient startX="0" startY="0" endX="1" endY="1">
+                                <stops>
+                                    <javafx.scene.paint.Stop offset="0" color="#00A3AD" />
+                                    <javafx.scene.paint.Stop offset="1" color="#0047AB" />
+                                </stops>
+                            </javafx.scene.paint.LinearGradient>
+                        </stroke>
+                        <effect>
+                            <javafx.scene.effect.DropShadow color="rgba(0, 163, 173, 0.4)" radius="15" />
+                        </effect>
+                    </javafx.scene.shape.SVGPath>
+                    
+                    <!-- Broken Heart Zigzag Detail -->
+                    <javafx.scene.shape.SVGPath content="M 50,20 L 45,35 L 55,45 L 45,60 L 50,85" 
+                        stroke="#FFFFFF" strokeWidth="2" fill="transparent" opacity="0.6" />
+                    
+                    <!-- Luxury Capsule/Pill Detail (Top Right) -->
+                    <javafx.scene.Group layoutX="65" layoutY="15" rotate="45">
+                        <javafx.scene.shape.Rectangle width="24" height="12" arcWidth="12" arcHeight="12" fill="#FFFFFF" opacity="0.9" />
+                        <javafx.scene.shape.Rectangle width="12" height="12" arcWidth="0" arcHeight="0" fill="#00A3AD" />
+                    </javafx.scene.Group>
+                    
+                    <!-- Iconic Luxury Snake (Elegant Spiral Wrap) -->
+                    <javafx.scene.shape.SVGPath content="M 35,75 C 15,75 15,55 50,55 C 85,55 85,35 50,35 C 15,35 15,15 50,15 C 65,15 75,20 65,35" 
+                        fill="transparent" strokeWidth="6" strokeLineCap="ROUND">
+                        <stroke>
+                            <javafx.scene.paint.LinearGradient startX="0" startY="0" endX="0" endY="1">
+                                <stops>
+                                    <javafx.scene.paint.Stop offset="0" color="#006D75" />
+                                    <javafx.scene.paint.Stop offset="0.5" color="#00A3AD" />
+                                    <javafx.scene.paint.Stop offset="1" color="#0047AB" />
+                                </stops>
+                            </javafx.scene.paint.LinearGradient>
+                        </stroke>
+                        <effect>
+                            <javafx.scene.effect.DropShadow color="rgba(0, 109, 117, 0.5)" radius="10" />
+                        </effect>
+                    </javafx.scene.shape.SVGPath>
+                    
+                    <!-- Serpent Head Detail -->
+                    <javafx.scene.shape.Circle centerX="65" centerY="35" radius="4" fill="#006D75" />
+                </javafx.scene.Group>
+            </StackPane>
+
+            <VBox alignment="CENTER" spacing="5">
+                <Label text="Create Account" styleClass="login-heading" style="-fx-font-size: 26px;" />
+                <Label text="Join the pharmacy network" styleClass="login-text-muted" style="-fx-font-weight: bold;"/>
+            </VBox>
+            
+            <VBox spacing="4" style="-fx-padding: 5 0 0 0;">
+                <Label text="Username" styleClass="login-text-muted" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                <HBox alignment="CENTER_LEFT" spacing="12" styleClass="login-text-field">
+                    <TextField fx:id="txtUsername" promptText="Choose a username" style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 0;" HBox.hgrow="ALWAYS" />
+                </HBox>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Password" styleClass="login-text-muted" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                <HBox alignment="CENTER_LEFT" spacing="12" styleClass="login-text-field">
+                    <PasswordField fx:id="txtPassword" promptText="••••••••" style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 0;" HBox.hgrow="ALWAYS" />
+                </HBox>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Full Name" styleClass="login-text-muted" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                <HBox alignment="CENTER_LEFT" spacing="12" styleClass="login-text-field">
+                    <TextField fx:id="txtFullName" promptText="John Doe" style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 0;" HBox.hgrow="ALWAYS" />
+                </HBox>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Phone Number" styleClass="login-text-muted" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                <HBox alignment="CENTER_LEFT" spacing="12" styleClass="login-text-field">
+                    <TextField fx:id="txtPhone" promptText="+1 234 567 8900" style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 0;" HBox.hgrow="ALWAYS" />
+                </HBox>
+            </VBox>
+
+            <VBox spacing="4">
+                <Label text="Email Address" styleClass="login-text-muted" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                <HBox alignment="CENTER_LEFT" spacing="12" styleClass="login-text-field">
+                    <TextField fx:id="txtEmail" promptText="john@example.com" style="-fx-background-color: transparent; -fx-border-width: 0; -fx-padding: 0;" HBox.hgrow="ALWAYS" />
+                </HBox>
+            </VBox>
+            
+            <Label fx:id="errorLabel" textFill="#EF4444" visible="false" managed="false" style="-fx-font-weight: bold;"/>
+
+            <VBox spacing="10" style="-fx-padding: 5 0 0 0;">
+                <Button maxWidth="Infinity" text="Create Account" styleClass="btn-primary" onAction="#handleRegister" style="-fx-padding: 12; -fx-font-size: 16px;" />
+                <Button maxWidth="Infinity" text="Back to Login" styleClass="btn-secondary" onAction="#handleBackToLogin" style="-fx-padding: 10; -fx-font-size: 14px;" />
+            </VBox>
+            
+         </children>
+      </VBox>
+   </children>
+</StackPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="25" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.controller.FavoritesController">
+    <VBox>
+        <Label text="Your Favorites" styleClass="heading-1" />
+        <Label text="Medicines you have saved for quick access" styleClass="text-muted" />
+    </VBox>
+    
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent;">
+        <content>
+            <FlowPane fx:id="favoritesFlowPane" hgap="20" vgap="20" />
+        </content>
+    </ScrollPane>
+</VBox>

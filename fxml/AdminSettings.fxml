@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<HBox spacing="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.controller.AdminSettingsController">
+    <!-- Users Panel -->
+    <VBox spacing="15" HBox.hgrow="ALWAYS" styleClass="card">
+        <Label text="User Management" styleClass="heading-2" />
+        <TableView fx:id="tableUsers" VBox.vgrow="ALWAYS" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="colUsername" text="Username" prefWidth="150" />
+                <TableColumn fx:id="colRole" text="Role" prefWidth="150" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+
+        <VBox spacing="10">
+            <Label text="Add New User" styleClass="heading-2" style="-fx-font-size: 16px;" />
+            <TextField fx:id="txtUsername" promptText="Username" styleClass="text-field" />
+            <PasswordField fx:id="txtPassword" promptText="Password" styleClass="text-field" />
+            <ComboBox fx:id="cmbRole" maxWidth="Infinity" styleClass="text-field" />
+            <HBox spacing="10">
+                <Button text="Add User" styleClass="btn-primary" onAction="#handleAddUser" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="USER_PLUS" fill="white" />
+                    </graphic>
+                </Button>
+                <Button text="Delete Selected" styleClass="btn-danger" onAction="#handleDeleteUser" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="TRASH" fill="white" />
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </VBox>
+
+    <!-- Suppliers Panel -->
+    <VBox spacing="15" HBox.hgrow="ALWAYS" styleClass="card">
+        <Label text="Supplier Management" styleClass="heading-2" />
+        <TableView fx:id="tableSuppliers" VBox.vgrow="ALWAYS" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="colSupplierName" text="Supplier Name" prefWidth="150" />
+                <TableColumn fx:id="colSupplierContact" text="Contact Info" prefWidth="150" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+
+        <VBox spacing="10">
+            <Label text="Add New Supplier" styleClass="heading-2" style="-fx-font-size: 16px;" />
+            <TextField fx:id="txtSupplierName" promptText="Supplier Name" styleClass="text-field" />
+            <TextField fx:id="txtSupplierContact" promptText="Contact Info / Email" styleClass="text-field" />
+            <HBox spacing="10">
+                <Button text="Add Supplier" styleClass="btn-primary" onAction="#handleAddSupplier" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="TRUCK" fill="white" />
+                    </graphic>
+                </Button>
+                <Button text="Delete Selected" styleClass="btn-danger" onAction="#handleDeleteSupplier" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="TRASH" fill="white" />
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </VBox>
+</HBox>

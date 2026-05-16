@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ListView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+
+<VBox spacing="25" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pharmacy.controller.DashboardController">
+    <children>
+        <HBox alignment="CENTER_LEFT">
+            <VBox>
+                <Label fx:id="lblWelcome" text="Overview Dashboard" styleClass="heading-1" />
+                <Label fx:id="lblSubtitle" text="Real-time analytics and inventory alerts" styleClass="text-muted" />
+            </VBox>
+        </HBox>
+
+        <!-- Admin/Pharmacist Stats Cards -->
+        <GridPane fx:id="adminCards" hgap="25" vgap="25">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+                <ColumnConstraints percentWidth="25" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+            </rowConstraints>
+
+            <!-- Card 1 -->
+            <HBox styleClass="card" spacing="20" GridPane.columnIndex="0" alignment="CENTER_LEFT">
+                <StackPane style="-fx-background-color: rgba(0, 163, 173, 0.1); -fx-background-radius: 12; -fx-padding: 15;">
+                    <FontAwesomeIconView glyphName="MEDKIT" size="24" fill="#00A3AD" />
+                </StackPane>
+                <VBox alignment="CENTER_LEFT">
+                    <Label text="Total Medicines" styleClass="card-title" />
+                    <Label fx:id="lblTotalMedicines" text="0" styleClass="card-value" />
+                </VBox>
+            </HBox>
+
+            <!-- Card 2 -->
+            <HBox styleClass="card" spacing="20" GridPane.columnIndex="1" alignment="CENTER_LEFT">
+                <StackPane style="-fx-background-color: #FEF3C7; -fx-background-radius: 12; -fx-padding: 15;">
+                    <FontAwesomeIconView glyphName="WARNING" size="24" fill="#D97706" />
+                </StackPane>
+                <VBox alignment="CENTER_LEFT">
+                    <Label text="Low Stock" styleClass="card-title" />
+                    <Label fx:id="lblLowStock" text="0" styleClass="card-value" />
+                </VBox>
+            </HBox>
+
+            <!-- Card 3 -->
+            <HBox styleClass="card" spacing="20" GridPane.columnIndex="2" alignment="CENTER_LEFT">
+                <StackPane style="-fx-background-color: #FEE2E2; -fx-background-radius: 12; -fx-padding: 15;">
+                    <FontAwesomeIconView glyphName="TIMES_CIRCLE" size="24" fill="#DC2626" />
+                </StackPane>
+                <VBox alignment="CENTER_LEFT">
+                    <Label text="Out of Stock" styleClass="card-title" />
+                    <Label fx:id="lblOutOfStock" text="0" styleClass="card-value" />
+                </VBox>
+            </HBox>
+
+            <!-- Card 4 -->
+            <HBox styleClass="card" spacing="20" GridPane.columnIndex="3" alignment="CENTER_LEFT">
+                <StackPane style="-fx-background-color: rgba(0, 109, 117, 0.1); -fx-background-radius: 12; -fx-padding: 15;">
+                    <FontAwesomeIconView glyphName="USERS" size="24" fill="#006D75" />
+                </StackPane>
+                <VBox alignment="CENTER_LEFT">
+                    <Label text="Customers" styleClass="card-title" />
+                    <Label fx:id="lblTotalCustomers" text="0" styleClass="card-value" />
+                </VBox>
+            </HBox>
+        </GridPane>
+
+        <!-- Customer Stats Cards -->
+        <GridPane fx:id="customerCards" hgap="25" vgap="25" visible="false" managed="false">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50" />
+                <ColumnConstraints percentWidth="50" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+            </rowConstraints>
+
+            <HBox styleClass="card" spacing="20" GridPane.columnIndex="0" alignment="CENTER_LEFT">
+                <StackPane style="-fx-background-color: #EFF6FF; -fx-background-radius: 12; -fx-padding: 15;">
+                    <FontAwesomeIconView glyphName="SHOPPING_BAG" size="24" fill="#3B82F6" />
+                </StackPane>
+                <VBox alignment="CENTER_LEFT">
+                    <Label text="My Orders" styleClass="card-title" />
+                    <Label fx:id="lblCustomerOrders" text="0" styleClass="card-value" />
+                </VBox>
+            </HBox>
+
+            <HBox styleClass="card" spacing="20" GridPane.columnIndex="1" alignment="CENTER_LEFT">
+                <StackPane style="-fx-background-color: #D1FAE5; -fx-background-radius: 12; -fx-padding: 15;">
+                    <FontAwesomeIconView glyphName="CHECK_CIRCLE" size="24" fill="#059669" />
+                </StackPane>
+                <VBox alignment="CENTER_LEFT">
+                    <Label text="Account Status" styleClass="card-title" />
+                    <Label text="Active" styleClass="card-value" style="-fx-text-fill: #059669;" />
+                </VBox>
+            </HBox>
+        </GridPane>
+
+        <!-- Alerts Section -->
+        <VBox fx:id="alertsSection" styleClass="card" VBox.vgrow="ALWAYS" spacing="15">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <FontAwesomeIconView glyphName="BELL" size="18" fill="#F59E0B" />
+                <Label fx:id="lblAlertsTitle" text="Live Inventory Alerts" styleClass="heading-2" />
+            </HBox>
+            <ListView fx:id="listAlerts" VBox.vgrow="ALWAYS" styleClass="list-view" />
+        </VBox>
+    </children>
+</VBox>
